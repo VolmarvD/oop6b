@@ -32,6 +32,25 @@ public class Persoon {
         else{return false;}
     }
 
+
+    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> teKoop){
+        ArrayList<Game> bezitNiet = new ArrayList<>();
+        for (Game spel : teKoop){
+            boolean inBezit = false;
+            for (Game mijnGame : mijnGames){
+                if (mijnGame == spel){
+                    inBezit = true;
+                    break;
+                }
+            }
+            if (!inBezit){
+                bezitNiet.add(spel);
+            }
+        }
+        return bezitNiet;
+    }
+
+
     @Override
     public String toString() {
         String s = naam + String.format(" heeft een budget van €%.2f", budget) + " en bezit de volgende games:";
