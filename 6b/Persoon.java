@@ -21,7 +21,7 @@ public class Persoon {
         return false;
     }
 
-    public boolean verkoop(Game g, Persoon koper) {
+    public boolean verkoop(Game g, Persoon koper) { 
         if (!koper.mijnGames.contains(g) && koper.budget >= g.huidigeWaarde() && mijnGames.contains(g)) {
             koper.budget -= g.huidigeWaarde();
             koper.mijnGames.add(g);
@@ -30,6 +30,14 @@ public class Persoon {
             return true;
         }
         else{return false;}
+    }
+    public Game zoekGameOpNaam(String game){
+        for (Game spel : mijnGames){
+            if (spel.getNaam().equals(game)) {
+                return spel;
+            }
+        }
+        return null;
     }
 
     @Override
